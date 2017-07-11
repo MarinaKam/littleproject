@@ -1,0 +1,316 @@
+/*main
+============================================================================
+*/
+.main {
+  @include screen-tiny {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    //height: 500px;
+    background: $bgc-main-page url("img/rocket_white.png") no-repeat 115% 80%/40%;
+    opacity: .8;
+    &:after {
+      content: ' ';
+      position: absolute;
+      width: 30%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+      opacity: .2;
+      background: url("img/cloud1.png") no-repeat 0% 15%/55%;
+    }
+    &:before {
+      content: ' ';
+      position: absolute;
+      width: 100%;
+      height: 90%;
+      top: 10%;
+      left: 0;
+      opacity: .2;
+      background: url("img/cloud2.png") no-repeat 100% 10%/40%, url("img/cloud2.png") no-repeat 0% 85%/30%;
+    }
+    .main__nav {
+      width: 100%;
+      height: 60px;
+      position: relative;
+      @include flex(row, space-between);
+      align-items: center;
+      & a {
+        color: $bgc-body;
+      }
+      & .nav__logo {
+        font-size: $font + 8;
+        & .nav__logo-link {
+          width: 100%;
+          border-top: 2px solid $bgc-body;
+          position: absolute;
+          color: $main-btn-bgc;
+          top: 60px;
+          & span {
+            color: $hgroup-color;
+          }
+        }
+      }
+      .nav__btn {
+        @include flex(row, space-between);
+        align-items: center;
+        position: relative;
+        width: 160px;
+        height: 60px;
+      }
+      & hr {
+        display: none;
+      }
+      .nav__menu {
+        display: none;
+      }
+      .login {
+        padding: 3px 8px 5px 10px;
+        @include border(2px, white, 19px) {
+          @include alpha-attribute('background-color', rgba($bgc-body, .3), black);
+        }
+        &:hover {
+          @include alpha-attribute('background-color', rgba($bgc-body, .7), black);
+          color: $main-btn-bgc;
+        }
+      }
+      .sign {
+        padding: 3px 10px 5px;
+        @include border(2px, darken($main-btn-bgc, 5%), 19px) {
+          background-color: $main-btn-bgc;
+        }
+        &:hover {
+          @include alpha-attribute('background-color', rgba($bgc-body, .5), black);
+          color: $main-btn-bgc;
+        }
+        &:active {
+          @include alpha-attribute('background-color', rgba($main-btn-bgc, .7), white);
+          color: $bgc-body;
+        }
+      }
+    }
+
+    .search {
+      display: none;
+    }
+    .landing {
+      position: relative;
+      padding: 30px 0;
+      margin: 0px auto;
+      text-align: center;
+      color: $bgc-body;
+      font-size: $font;
+      width: 100%;
+      //height: 440px;
+      & .landing__list {
+        position: relative;
+        text-align: left;
+        margin-left: 20px;
+        padding-bottom: 30px;
+        & .landing__list-title {
+          font-size: $font + 5;
+          padding-bottom: 2px;
+          &:before {
+            content: '';
+            position: absolute;
+            margin-top: 6px;
+            left: -15px;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+          }
+          & span {
+            color: $hgroup-color;
+          }
+        }
+        & .landing__list-text {
+          font: $font - 2;
+          padding-bottom: 20px;
+        }
+      }
+    }
+    .landing__title {
+      font-size: $font + 13;
+      line-height: 1.8;
+      & span {
+        text-decoration: underline;
+      }
+    }
+
+    @import "main_btn";
+  }
+  @include screen-tablets {
+    height: 530px;
+    background: $bgc-main-page  url("img/rocket_white.png") no-repeat 100% 90%/30%;
+    &:after {
+      opacity: .4;
+      background: url("img/cloud1.png") no-repeat 0% 10%/45%;
+    }
+    &:before {
+      opacity: .4;
+      background: url("img/cloud2.png") no-repeat 100% 3%/12%, url("img/cloud2.png") no-repeat 68% 55%/18%;
+    }
+    .landing {
+      width: 100%;
+      margin: 0 auto;
+      & .landing__list {
+        width: 500px;
+        margin: 0 auto;
+      }
+    }
+    .landing__title {
+      font-size: $font + 30;
+      margin-top: 0;
+    }
+  }
+
+  @include screen-desktops {
+    height: 600px;
+    background: $bgc-main-page  url("img/rocket_white.png") no-repeat 93% 90%/20%;
+    &:after {
+      width: 60%;
+      height: 100%;
+      opacity: .5;
+      background: url("img/cloud1.png") no-repeat 0% 5%/25%;
+      z-index: -1;
+    }
+    &:before {
+      opacity: .5;
+      background: url("img/cloud2.png") no-repeat 80% 10%/10%, url("img/cloud2.png") no-repeat 70% 45%/15%;
+    }
+    .main__nav {
+      max-width: $main_width;
+      height: 60px;
+      margin: 0 auto;
+      font-size: $font + 2;
+      border-bottom: 2px solid $bgc-body;
+      & a {
+        color: $bgc-body;
+      }
+      .nav {
+        @include flex(row, auto);
+        align-items: center;
+      }
+      .nav__menu {
+        @include flex(row, space-between);
+        width: 650px;
+        & .menu__item {
+          height: 55px;
+          padding: 17px 0;
+          cursor: pointer;
+        }
+        & .menu__item-link {
+          padding: 17px 2px;
+        }
+        & .menu__item-link:hover {
+          border-bottom: 2px solid $bgc-body;
+        }
+      }
+      .nav__logo {
+        height: 55px;
+        margin-right: 5px;
+        font-size: $font + 10;
+        & .nav__logo-link {
+          display: block;
+          padding: 12px 0 18px;
+          position: relative;
+          top: -3px;
+          border-top: none;
+          border-bottom: 4px solid $main-btn-bgc;
+          &:hover {
+            @include alpha-attribute('color', rgba($hgroup-color, .7), black);
+          }
+          &:hover span {
+            @include alpha-attribute('color', rgba($main-btn-bgc, .7), black);
+            }
+        }
+      }
+    }
+    .landing {
+      max-width: $main_width;
+      margin: 0 auto;
+      opacity: .99;
+      & .landing__title {
+        width: 100%;
+        //margin: 0 auto;
+        margin-top: -30px;
+      }
+
+      & .landing__list {
+        padding-bottom: 50px;
+      }
+      //& .landing__btn {
+      //  @include btn($font + 16, $main-btn-bgc) {
+      //    padding: 6px 25px 8px;
+      //  };
+      }
+    // ========== Search ===========
+
+    .search {
+      display: block;
+      position: relative;
+      max-width: $main_width;
+      height: 40px;
+      margin: 5px auto;
+    }
+    .search__form {
+      position: relative;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .search__form input.search__input {
+      float: right;
+      width: 22%;
+      height: 36px;
+      background: $bgc-body;
+      border: 1px solid $hgroup-color;
+      font-size: $font + 2;
+      color: $hgroup-color;
+      padding-left: 40px;
+      border-radius: 20px;
+      @include transition(background .55s);
+    }
+
+    .search__form input.search__input::-webkit-input-placeholder {
+      color: $hgroup-color;
+    }
+
+    .search__form input.search__input:-moz-placeholder { /* Firefox 18- */
+      color: $hgroup-color;
+    }
+
+    .search__form input.search__input::-moz-placeholder {  /* Firefox 19+ */
+      color: $hgroup-color;
+    }
+
+    .search__form input.search__input:-ms-input-placeholder {
+      color: $hgroup-color;
+    }
+
+    .search__form .icon{
+      position: absolute;
+      left: 78%;
+      top: -9px;
+      margin-left: 12px;
+      margin-top: 19px;
+      z-index: 1000;
+      color: #4f5b66;
+    }
+
+    .search__form input.search__input:hover,
+    .search__form input#search:focus,
+    .search__form input#search:active {
+      outline:none;
+      background: $bgc-body;
+    }
+
+
+  }
+
+/*main END
+============================================================================
+*/
+}
+

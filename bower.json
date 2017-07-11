@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "description": "",
+  "main": "gulpfile.babel.js",
+  "authors": [
+    "Marina Kam <marina.stozhok@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MarinaKam/MarinaKamysheva.github.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "*",
+    "jquery": "3.*",
+    "bootstrap": "3.*"
+  }
+}

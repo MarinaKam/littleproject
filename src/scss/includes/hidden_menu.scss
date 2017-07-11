@@ -1,0 +1,128 @@
+/*menu__button
+============================================================================
+*/
+.menu__button {
+  @include screen-tiny {
+    position: absolute;
+    left: 0;
+    //right: 0;
+    margin: 59px 10px 0 0;
+    width: 55px;
+    height: 55px;
+    @include alpha-attribute('background-color', rgba($hgroup-color, 0.5), white);
+    z-index: 100;
+    & span {
+      display: block;
+    }
+
+    & .sandwich {
+      position: relative;
+      margin: 19px auto;
+      width: 30px;
+      cursor: pointer;
+      z-index: 200;
+      &.active .sw-topper {
+        top: 9px;
+        @include transform(rotate(-45deg));
+      }
+
+      &.active .sw-bottom {
+        top: 0;
+        @include transform(rotate(45deg));
+      }
+
+      &.active .sw-footer {
+        opacity: 0;
+        top: 0;
+        @include transform(rotate(180deg));
+      }
+    }
+
+    & .sw-bottom,
+    & .sw-topper,
+    & .sw-footer {
+      position: relative;
+      margin: 6px 0;
+      width: 30px;
+      height: 3px;
+      border: none;
+      border-radius: 4px;
+      background: $bgc-body;
+    }
+
+    & .sw-topper {
+      @include transition(transform 0.5s, top 0.2s);
+    }
+
+    & .sw-bottom {
+      @include transition(transform 0.5s, top 0.2s);
+      @include transition-delay(.2s, 0s);
+    }
+
+    & .sw-footer {
+      @include transition(all .5s);
+      @include transition-delay(.1s);
+    }
+    /*menu__hidden
+    ============================================================================
+    */
+    .menu__hidden {
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      letter-spacing: .3em;
+      color: $bgc-body;
+      opacity: 0;
+      @include transition(opacity .5s);
+      &.active {
+        position: fixed;
+        width: 100%;
+        @include alpha-attribute('background-color', rgba($hgroup-color, .8), white);
+        opacity: .8;
+        @include animation-name(opacityList);
+        @include animation-duration(.5s);
+      }
+      & .hidden__list {
+        position: relative;
+        text-align: center;
+        margin: 200px auto;
+      }
+
+      & .hidden__item {
+        position: relative;
+        @include animation-name(opacityList);
+        @include animation-duration(.5s);
+      }
+
+      & .hidden__link {
+        color: white;
+        display: block;
+        padding: 10px 0;
+      }
+
+      & .hidden__link:hover {
+        display: block;
+        @include alpha-attribute('background-color', rgba($hgroup-color, 1), white);
+      }
+
+    }
+    @include keyframes(opacityList) {
+      from {
+        opacity: 0;
+        top: -50px;
+      }
+      to {
+        opacity: .8;
+        top: 0;
+      }
+    }
+
+  }
+  @include screen-desktops {
+    display: none;
+  }
+}
+/*menu__button END
+============================================================================
+*/

@@ -1,0 +1,123 @@
+@mixin flex($row, $space) {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: $row wrap;
+  -ms-flex-flow: $row wrap;
+  flex-flow: $row wrap;
+  justify-content: $space;
+}
+@mixin flexDir($arg...) {
+  -webkit-flex: $arg;
+  -ms-flex: $arg;
+  flex: $arg;
+}
+
+@mixin border($px, $color, $r) {
+  border: $px solid $color;
+  border-radius: $r;
+  @content;
+}
+
+@mixin transition($arg...) {
+  -webkit-transition: $arg;
+  -moz-transition: $arg;
+  -o-transition: $arg;
+  transition: $arg;
+}
+
+@mixin transition-delay($arg...) {
+  -webkit-transition-delay: $arg;
+  -moz-transition-delay: $arg;
+  -o-transition-delay: $arg;
+  transition-delay: $arg;
+}
+
+@mixin transform ($arg) {
+  -webkit-transform: $arg;
+  -moz-transform: $arg;
+  -ms-transform: $arg;
+  -o-transform: $arg;
+  transform: $arg;
+}
+
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+}
+
+@mixin animation-duration($val) {
+  -webkit-animation-duration: $val;
+  -moz-animation-duration: $val;
+  -o-animation-duration: $val;
+  animation-duration: $val;
+}
+
+@mixin keyframes( $val )
+{
+  @-webkit-keyframes #{$val} {
+    @content;
+  }
+  @-moz-keyframes #{$val} {
+    @content;
+  }
+  @-o-keyframes #{$val} {
+    @content;
+  }
+  @keyframes #{$val} {
+    @content;
+  }
+}
+
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}
+
+@mixin border-radius($arg) {
+  -webkit-border-radius: $arg;
+  -moz-border-radius: $arg;
+  border-radius: 4$arg
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+  -webkit-box-shadow:$top $left $blur $color #{$inset};
+  -moz-box-shadow:$top $left $blur $color #{$inset};
+  box-shadow:$top $left $blur $color #{$inset};
+}
+@mixin btn($font-size, $bgc) {
+  padding: 5px 10px;
+  font-size: $font-size;
+  @include border(2px, darken($bgc, 5%), 50px);
+  @content;
+}
+
+@mixin btn-bgc($bg, $color, $colorHover,  $bgcHover) {
+  color: $color;
+  @include alpha-attribute('background-color', $bg, white);
+  @content;
+  &:hover {
+    @include alpha-attribute('background-color', $bgcHover, white);
+    //background:darken($bgcHover, .5%);
+    color: $colorHover;
+    transition: all 0.3s ease;
+  }
+  &:active {
+    @include alpha-attribute('background-color', $bg, white);
+    color: $color;
+  }
+}
+//@include box-shadow(inset, 0, 1px, 1px, rgba(0, 0, 0, 0.5));
+
+@mixin hgroup($fontSize, $color) {
+  font-size: $fontSize;
+  color: $color;
+  text-align: center;
+  padding: 30px 0;
+  @content;
+}

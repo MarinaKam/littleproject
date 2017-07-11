@@ -1,0 +1,20 @@
+@include screen-tiny {
+  .landing__btn {
+    display: block;
+    @include btn($font + 6, $main-btn-bgc);
+    @include btn-bgc(rgba($main-btn-bgc, 1), $bgc-body, $main-btn-bgc, $bgc-body);
+    opacity: .99;
+    margin: 0 auto;
+    font-size: $font + 8;
+    width: 200px;
+  }
+}
+
+@include screen-desktops {
+  .landing__btn {
+    width: 260px;
+    font-size: $font + 12;
+    //padding: 3px 35px 5px;
+  }
+}
+

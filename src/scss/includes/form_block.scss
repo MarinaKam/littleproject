@@ -1,0 +1,150 @@
+/*form_block
+============================================================================
+*/
+.form-block__wrapper {
+  @include screen-tiny {
+    width: 98%;
+    margin: 0 auto;
+    .form-block__title {
+      @include hgroup($font + 24, $hgroup-color){
+        font-weight: normal;
+        margin: 0 auto;
+      }
+    }
+    .error {
+      max-width: 870px;
+      margin: auto;
+      color: red;
+      font-size: $font + 2;
+      padding-bottom: 5px;
+    }
+    .success {
+      max-width: 870px;
+      margin: auto;
+      color: green;
+      font-size: $font + 2;
+      padding-bottom: 5px;
+    }
+    .form{
+      position: relative;
+      width: 100%;
+      height: auto;
+      max-width: 900px;
+      @include flex(row, space-between);
+      margin: 0 auto;
+      //@include flexDir(1, 0, auto);
+      ::-webkit-input-placeholder {color:$hgroup-color;}
+      ::-moz-placeholder          {color:$hgroup-color;}/* Firefox 19+ */
+      :-moz-placeholder           {color:$hgroup-color;}/* Firefox 18- */
+      :-ms-input-placeholder      {color:$hgroup-color;}
+      & input[placeholder]          {text-overflow:ellipsis;}
+      & input::-moz-placeholder     {text-overflow:ellipsis;}
+      & input:-moz-placeholder      {text-overflow:ellipsis;}
+      & input:-ms-input-placeholder {text-overflow:ellipsis;}
+      /* плавное изменение прозрачности  placeholder-а при фокусе */
+      & input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+      & input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+      & input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+      & input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+      & input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+      & input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+      & input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+      & input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+      & textarea:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+      & textarea:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+      & textarea:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+      & textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+
+    }
+
+    .form fieldset {
+      //@include flexDir(1 0 auto);
+      width: 49%;
+      border:none;
+    }
+    /* формируем подписи к полям ввода */
+    .form input, .form textarea {
+      color: $hgroup-color;
+      @include border(1px, $hgroup-color, 4px);
+      margin: 0px 0 5px;
+      padding: 5px;
+    }
+    .form input {
+      width: 300px;
+      //max-width: 420px;
+      height: 36px;
+    }
+
+    .form input[name="name"] {
+      margin-bottom: 15px;
+    }
+    .form input[name="phone"] {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .form input[name="email"] {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .form input[name="serverName"] {
+      width: 100%;
+    }
+    .form textarea {
+      /* устанавливаем ширину текстового поля */
+      width:300px;
+      height:138px;
+      overflow:auto;
+    }
+    .btn__input {
+      text-align: left;
+      width: 93%;
+      height: 36px;
+      margin: 0 auto;
+    }
+    .form input.btn {
+      width: 95px;
+      height: 36px;
+      background-image: linear-gradient(to top, #1991eb 0%, #2ca0f7 100%);
+      @include border(1px, $hgroup-color, 4px);
+      color: white;
+      font-size: $font;
+    }
+
+  }
+
+  @include screen-tablets {
+
+    .form input {
+      width: 424px;
+    }
+    .form input[name="phone"] {
+      width: 40%;
+    }
+    .form input[name="email"] {
+      width: 58.5%;
+    }
+
+    .form input[name="serverName"] {
+      max-width: 424px;
+    }
+
+    .form textarea {
+      width:420px;
+      overflow:auto;
+    }
+    .btn__input {
+      text-align: left;
+      width: 96%;
+    }
+  }
+
+  @include screen-desktops {
+    .btn__input {
+      text-align: end;
+      width: 98%;
+      margin: 0 auto;
+    }
+  }
+}
+

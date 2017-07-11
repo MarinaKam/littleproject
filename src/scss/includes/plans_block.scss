@@ -1,0 +1,191 @@
+/*plans_block
+============================================================================
+*/
+.plans {
+  a {
+    display: block;
+  }
+  @include screen-tiny {
+    color: $text-color;
+    .plans__title {
+      @include hgroup($font + 24, $hgroup-color);
+      width: 100%;
+      margin: 0 auto;
+    }
+    .plans__wrapper {
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      height: auto;
+      @include flex(column, space-between);
+      flex-flow: row wrap;
+      align-items: center;
+      text-align: center;
+    }
+    .plans__item {
+      margin-bottom: 10px;
+      width: 100%;
+      @include border(1px, $hgroup-color, 10px);
+    }
+
+    .plans__item-title {
+      @include hgroup($font + 20, $hgroup-color) {
+        font-weight: normal;
+        padding: 10px 0;
+      }
+    }
+    .plans__item-subtitle {
+      font-size: $font + 12;
+      font-weight: normal;
+    }
+    .plans__item-text {
+      font-size: $font;
+      font-weight: normal;
+    }
+
+    .plans__list {
+      position: relative;
+      text-align: left;
+      font-size: $font + 1;
+      line-height: 28px;
+      padding: 15px 0 15px 60px;
+    }
+
+    .plans__list-item {
+      &:before {
+        content: '';
+        position: absolute;
+        margin-top: 11px;
+        left: 26px;
+        width: 6px;
+        height: 6px;
+        background: $text-color;
+        border-radius: 50%;
+      }
+    }
+
+    .plans__price {
+      font-size: $font + 30;
+      color: $price-color;
+      padding-bottom: 10px;
+      & .fa,
+      & span {
+        font-size: $font + 12;
+      }
+      & .fa {
+        letter-spacing: .2em;
+      }
+
+    }
+    .plans__price-text {
+      font-size: $font + 2;
+    }
+    .plans__price-link {
+      margin: 10px auto;
+      width: 180px;
+      font-size: $font + 10;
+      color: $hgroup-color;
+      padding: 8px 0 13px;
+      @include border(1px, $hgroup-color, 50px);
+      &:hover {
+        @include alpha-attribute('background-color', rgba($hgroup-color, .1), white);
+        transition: all 0.3s ease;
+      }
+      &:active {
+        @include alpha-attribute('background-color', rgba($hgroup-color, 1), white);
+        color: $bgc-body;
+        //background-color: $bgc-body;
+      }
+    }
+    .dedicated__img {
+      & .fa {
+        padding: 10px;
+        font-size: $font + 49;
+        color: $hgroup-color;
+      }
+    }
+  }
+
+
+  @include screen-tablets {
+    .plans__title {
+      //padding-bottom: 40px;
+    }
+    .plans__item {
+      margin: 10px;
+      width: 47%;
+    }
+
+    .plans__item-title {
+      padding: 22px 0;
+    }
+    .plans__list {
+      margin: 20px auto 0;
+    }
+    .delux,
+    .ultimate,
+    .dedicated {
+      & .plans__list {
+        margin: 0 auto;
+
+      }
+    }
+
+  }
+
+  @include screen-desktops {
+    @include flex(row, space-between);
+    .plans__wrapper {
+      max-width: $main_width;
+    }
+    .plans__item {
+      width: 31%;
+    }
+    .plans__item-title {
+      @include hgroup($font + 24, $hgroup-color) {
+        padding: 20px 0 38px;
+      }
+    }
+    .dedicated {
+      @include flex(column, flex-start);
+      align-items: flex-end;
+      position: relative;
+      width: 100%;
+      & .plans__item-subtitle {
+        width: 65%;
+        margin: 10px 0 0 0;
+      }
+      & .plans__item-text {
+        width: 45%;
+        margin-right: 11%;
+
+      }
+      & .plans__price {
+        position: absolute;
+        top: 35%;
+        right: 100px;
+      }
+
+      & .plans__price-link {
+        margin-right: 60px;
+        padding-bottom: 10px;
+      }
+      & .plans__price-text {
+        //font-size: $font + 4;
+        margin-top: -70px;
+        margin-right: 50px;
+      }
+    }
+    .dedicated__img {
+      position: absolute;
+      top: 2%;
+      left: 5%;
+      & .fa {
+        font-size: $font + 200;
+      }
+    }
+
+
+  }
+
+}

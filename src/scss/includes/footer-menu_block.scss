@@ -1,0 +1,58 @@
+/*tab_block
+============================================================================
+*/
+.footer-block {
+  flex: 0 0 auto;
+  @include screen-tiny {
+    position: relative;
+    margin: 20px auto 0;
+    width: 100%;
+    @include box-shadow(0px, 0px, 35px, -10px, rgba(35,135,193,.7));
+    @include alpha-attribute('background-color', rgba($bgc-main-page, .1), $bgc-body);
+    .footer__menu {
+      @include flex(row, space-between);
+      max-width: $main_width;
+      margin: 0 auto;
+    }
+    .footer__nav {
+      margin: 10px auto;
+    }
+    .footer__nav-title {
+      color: $hgroup-color;
+      font-size: $font;
+      font-weight: normal;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+    }
+    .navigation__item {
+      font-size: $font;
+      padding-bottom: 5px;
+    }
+
+    .navigation__item-link {
+      color: $text-color;
+      font-weight: normal;
+      &:hover {
+        color: $hgroup-color;
+      }
+      &:active {
+        color: $text-color;
+      }
+    }
+  }
+  @include  screen-tablets {
+    .footer__menu {
+      @include flex(row, space-between);
+      max-width: $main_width;
+      margin: 0 auto;
+    }
+  }
+  @include screen-desktops {
+    .footer__menu {
+      @include flex(row, flex-start);
+    }
+    .footer__nav {
+      margin: 10px 85px 10px 0;
+    }
+  }
+}
