@@ -5,13 +5,10 @@
   @include flex(row, space-between);
   width: 100%;
   border: 1px solid #e8e8e8;
-  & .support__info-link {
+  .support__info-link {
     color: $hgroup-color;
   }
-  & .support__menu,
-  & .support__info {
-    @include flex(row, space-between);
-  }
+
   @include screen-tiny {
     .support__nav {
       @include flex(row, space-between);
@@ -21,79 +18,41 @@
       background: $bgc-body;
       color: $text-color;
       height: 55px;
-      & .support__info,
-      & .support__menu {
+      .support__info {
+        @include flex(row, space-between);
+        width: 100%;
+      }
+      .support__menu {
+        @include flex(row, flex-start);
         width: 100%;
       }
       & .support__info-text {
         display: none;
       }
-      & .email {
-        position: absolute;
-        top: -6px;
-        right: 0;
-      }
-      & .menu__item {
+      .menu__item {
         padding: 5px 2px;
       }
-      & .ukr, .rs {
-        padding-left: 10px;
-      }
-      & .usd {
-        margin-left: -8px;
-      }
+
       & .fa {
         color: $hgroup-color;
         padding: 3px;
       }
     }
-    /* nav__sub-menu
-=====================
-*/
-    & .nav__sub-menu {
-      position: relative;
-    }
 
-    & .sub__menu {
-      width: 100%;
-      position: absolute;
-      left: 10px;
-      margin-top: 0;
-      visibility: hidden;
-      display: block;
-    }
-    & .nav__sub-menu:hover .sub__menu {
-      visibility: visible;
-      z-index: 1000;
-    }
-
-    & .sub__menu-link {
-      color: $text-color;
-      display: block;
-      padding: 5px 2px;
-      opacity: .9;
-    }
-    & .sub__menu-link:visited,
-    & .sub__menu-link:hover {
-      border-bottom: 1px solid $text-color;
-      opacity: .7;
-      width: 90%;
-    }
   }
   @include screen-tablets {
     .support__nav {
       width: 99%;
       margin: 0 auto;
-      & .support__info,
-      & .support__menu {
+      .support__menu {
+        @include flex(row, space-between);
+      }
+      .support__info,
+      .support__menu {
         width: 100%;
       }
-      & .support__info-text {
+      .support__info-text {
         display: block;
-      }
-      & .email {
-        position: relative;
-        top: 0;
       }
     }
   }
@@ -102,11 +61,16 @@
       height: 35px;
       width: $main_width;
       min-width: 960px;
-      & .support__menu {
+      .support__menu {
+        @include flex(row, flex-end);
+        margin-right: 5px;
         width: 440px;
       }
-      & .support__info {
+      .support__info {
         width: 470px;
+      }
+      .menu__item {
+        padding-left: 10px;
       }
     }
   }

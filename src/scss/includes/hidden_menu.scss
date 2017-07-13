@@ -15,12 +15,17 @@
       display: block;
     }
 
-    & .sandwich {
+    .sandwich {
       position: relative;
       margin: 19px auto;
       width: 30px;
       cursor: pointer;
       z-index: 200;
+      &.active {
+        position: fixed;
+        left: 12px;
+        top: 50px;
+      }
       &.active .sw-topper {
         top: 9px;
         @include transform(rotate(-45deg));

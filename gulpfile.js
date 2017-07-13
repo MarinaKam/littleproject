@@ -9,6 +9,7 @@ const streamCombiner = require('stream-combiner2');
 const concat = require('gulp-concat');
 const _if = require('gulp-if');
 const cleanCSS = require('gulp-clean-css');
+const cssmin = require('gulp-minify-css');
 const cssnano = require('gulp-cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
@@ -54,6 +55,8 @@ gulp.task('styles', function() {
             .pipe(_if(isDevelopment, sourcemaps.init()))
             .pipe(scss())
             .pipe(autoprefixer('last 2 version'))
+            .pipe(cssmin({keepBreaks: true}))
+            // .pipe(cssmin())
             .pipe(_if(!isDevelopment, cssnano()))
             .pipe(_if(!isDevelopment, cleanCSS()))
             .pipe(_if(isDevelopment, rev()))
@@ -99,7 +102,7 @@ gulp.task('scripts', function() {
         jshint.reporter('default'),
         rigger(),
         _if(isDevelopment, sourcemaps.init()),
-        // uglify(),
+        uglify(),
         _if(isDevelopment, sourcemaps.write()),
         gulp.dest(`${path.dest}/js/`),
         reload({stream: true})
