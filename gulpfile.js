@@ -56,7 +56,6 @@ gulp.task('styles', function() {
             .pipe(scss())
             .pipe(autoprefixer('last 2 version'))
             .pipe(cssmin({keepBreaks: true}))
-            // .pipe(cssmin())
             .pipe(_if(!isDevelopment, cssnano()))
             .pipe(_if(!isDevelopment, cleanCSS()))
             .pipe(_if(isDevelopment, rev()))
