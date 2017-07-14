@@ -91,7 +91,7 @@
   box-shadow:$top $left $blur $color #{$inset};
 }
 @mixin btn($font-size, $bgc) {
-  padding: 5px 10px;
+  padding: 5px 10px 8px;
   font-size: $font-size;
   @include border(2px, darken($bgc, 5%), 50px);
   @content;

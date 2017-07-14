@@ -19,7 +19,7 @@
     }
     .describe__item {
       line-height: 1.4;
-      padding: 10px;
+      padding: 10px 0;
       align-items: center;
       width: 100%;
       height: 210px;
@@ -39,10 +39,11 @@
     .describe__item-title {
       padding: 5px;
       font-size: $font + 8;
+      font-weight: normal;
       color: $hgroup-color;
     }
     .describe__item-text {
-      padding: 5px;
+      padding: 5px 0;
       font-size: $font - 2;
       color: $text-color;
       letter-spacing: .1em;
@@ -65,14 +66,24 @@
 
     .describe__item {
       padding-bottom: 0;
-      width: 25%;
-      height: auto;
+      width: 24%;
+      height: 230px;
+      &:first-child {
+        width: 23%;
+      }
+      &:nth-last-child(2) {
+        width: 30%;
+      }
+      &:last-child {
+        width: 23%;
+      }
     }
     .describe__item-text {
       padding: 5px;
       font-size: $font - 2;
       color: $text-color;
       letter-spacing: .0em;
+      text-align: center;
     }
   }
 }

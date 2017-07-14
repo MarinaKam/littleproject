@@ -6,7 +6,9 @@
     opacity: .99;
     margin: 0 auto;
     font-size: $font + 8;
-    width: 200px;
+    font-weight: lighter;
+    width: 220px;
+    padding: 5px 5px 8px;
   }
 }
 
@@ -14,7 +16,6 @@
   .landing__btn {
     width: 260px;
     font-size: $font + 12;
-    //padding: 3px 35px 5px;
   }
 }
 

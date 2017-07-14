@@ -1,15 +1,15 @@
 /*support nav
 ============================================================================
 */
+
 .support {
-  @include flex(row, space-between);
   width: 100%;
   border: 1px solid #e8e8e8;
-  .support__info-link {
-    color: $hgroup-color;
-  }
 
   @include screen-tiny {
+    .support__info-link {
+      color: $hgroup-color;
+    }
     .support__nav {
       @include flex(row, space-between);
       align-items: center;
@@ -18,60 +18,52 @@
       background: $bgc-body;
       color: $text-color;
       height: 55px;
-      .support__info {
-        @include flex(row, space-between);
-        width: 100%;
-      }
-      .support__menu {
-        @include flex(row, flex-start);
-        width: 100%;
-      }
-      & .support__info-text {
-        display: none;
-      }
-      .menu__item {
-        padding: 5px 2px;
-      }
-
-      & .fa {
-        color: $hgroup-color;
-        padding: 3px;
-      }
+    }
+    .support__info,
+    .support__menu {
+      @include flex(row, flex-start);
+      width: 100%;
+    }
+    .support__info-text {
+      margin-right: 10px;
+    }
+    .menu__item {
+      padding: 5px 2px;
     }
 
+    & .fa {
+      color: $hgroup-color;
+      padding: 3px;
+    }
   }
   @include screen-tablets {
     .support__nav {
       width: 99%;
       margin: 0 auto;
-      .support__menu {
-        @include flex(row, space-between);
-      }
-      .support__info,
-      .support__menu {
-        width: 100%;
-      }
-      .support__info-text {
-        display: block;
-      }
+      height: 35px;
+    }
+    .support__menu {
+      @include flex(row, flex-end);
+    }
+    .support__info,
+    .support__menu {
+      width: 50%;
     }
   }
   @include screen-desktops {
     .support__nav {
       height: 35px;
-      width: $main_width;
-      min-width: 960px;
-      .support__menu {
-        @include flex(row, flex-end);
-        margin-right: 5px;
-        width: 440px;
-      }
-      .support__info {
-        width: 470px;
-      }
-      .menu__item {
-        padding-left: 10px;
-      }
+      max-width: $main_width;
+    }
+    .support__menu {
+      margin-right: 5px;
+      width: 440px;
+    }
+    .support__info {
+      width: 470px;
+    }
+    .menu__item {
+      padding-left: 10px;
     }
   }
 }

@@ -124,6 +124,14 @@
     }
 
   }
+  @include screen-tablets {
+    margin: 39px 10px 0 0;
+    .sandwich {
+      &.active {
+        top: 31px;
+      }
+    }
+  }
   @include screen-desktops {
     display: none;
   }

@@ -39,7 +39,7 @@
       font-weight: normal;
     }
     .plans__item-text {
-      font-size: $font;
+      font-size: $font - 2;
       font-weight: normal;
     }
 
@@ -68,24 +68,26 @@
       font-size: $font + 30;
       color: $price-color;
       padding-bottom: 10px;
-      & .fa,
+      & .plans__price-grn,
       & span {
         font-size: $font + 12;
       }
-      & .fa {
-        letter-spacing: .2em;
+      & .plans__price-grn {
+        font-size: $font + 28;
+        //letter-spacing: .2em;
       }
 
     }
     .plans__price-text {
-      font-size: $font + 2;
+      font-size: $font;
     }
     .plans__price-link {
       margin: 10px auto;
-      width: 180px;
-      font-size: $font + 10;
+      width: 190px;
+      font-size: $font + 6;
+      font-weight: lighter;
       color: $hgroup-color;
-      padding: 8px 0 13px;
+      padding: 5px 0 8px;
       @include border(1px, $hgroup-color, 50px);
       &:hover {
         @include alpha-attribute('background-color', rgba($hgroup-color, .1), white);
@@ -114,13 +116,14 @@
     .plans__item {
       margin: 10px;
       width: 47%;
+      height: 430px;
     }
 
     .plans__item-title {
       padding: 22px 0;
     }
     .plans__list {
-      margin: 20px auto 0;
+      margin: 14px auto 0;
     }
     .delux,
     .ultimate,
@@ -140,6 +143,7 @@
     }
     .plans__item {
       width: 31%;
+      height: 440px;
     }
     .plans__item-title {
       @include hgroup($font + 24, $hgroup-color) {
@@ -151,6 +155,7 @@
       align-items: flex-end;
       position: relative;
       width: 100%;
+      height: 230px;
       & .plans__item-subtitle {
         width: 65%;
         margin: 10px 0 0 0;
@@ -163,7 +168,10 @@
       & .plans__price {
         position: absolute;
         top: 35%;
-        right: 100px;
+        right: 40px;
+        & .plans__price-grn {
+
+        }
       }
 
       & .plans__price-link {

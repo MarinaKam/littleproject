@@ -38,55 +38,59 @@
       & a {
         color: $bgc-body;
       }
-      .nav__logo {
-        font-size: $font + 8;
-      }
+    }
+    .nav__logo {
+      font-size: $font + 8;
       .nav__logo-link {
-        width: 100%;
-        border-top: 2px solid $bgc-body;
-        position: absolute;
         color: $main-btn-bgc;
-        top: 60px;
-        & span {
-          color: $hgroup-color;
-        }
       }
-      .nav__btn {
-        @include flex(row, space-between);
-        align-items: center;
-        position: relative;
-        width: 160px;
-        height: 60px;
+    }
+    .nav__logo-link {
+      width: 100%;
+      border-top: 2px solid $bgc-body;
+      position: absolute;
+      top: 60px;
+      & span {
+        color: $hgroup-color;
       }
-      & hr {
-        display: none;
+    }
+    .nav__btn {
+      @include flex(row, space-between);
+      align-items: center;
+      position: relative;
+      font-size: $font + 2;
+      font-weight: lighter;
+    }
+    .nav__menu {
+      display: none;
+    }
+    .login {
+      padding: 2px 8px 5px;
+      @include border(2px, white, 50px) {
+        @include alpha-attribute('background-color', rgba($bgc-body, .3), black);
       }
-      .nav__menu {
-        display: none;
+      &:hover {
+        @include alpha-attribute('background-color', rgba($bgc-body, .7), black);
+        color: $main-btn-bgc;
       }
-      .login {
-        padding: 3px 8px 5px 10px;
-        @include border(2px, white, 19px) {
-          @include alpha-attribute('background-color', rgba($bgc-body, .3), black);
-        }
-        &:hover {
-          @include alpha-attribute('background-color', rgba($bgc-body, .7), black);
-          color: $main-btn-bgc;
-        }
+      &:active {
+        @include alpha-attribute('background-color', rgba($bgc-body, .3), black);
+        color: $bgc-body;
       }
-      .sign {
-        padding: 3px 10px 5px;
-        @include border(2px, darken($main-btn-bgc, 5%), 19px) {
-          background-color: $main-btn-bgc;
-        }
-        &:hover {
-          @include alpha-attribute('background-color', rgba($bgc-body, .5), black);
-          color: $main-btn-bgc;
-        }
-        &:active {
-          @include alpha-attribute('background-color', rgba($main-btn-bgc, .7), white);
-          color: $bgc-body;
-        }
+    }
+    .sign {
+      margin-left: 5px;
+      padding: 2px 6px 5px;
+      @include border(2px, darken($main-btn-bgc, 5%), 50px) {
+        background-color: $main-btn-bgc;
+      }
+      &:hover {
+        @include alpha-attribute('background-color', rgba($bgc-body, .5), black);
+        color: $main-btn-bgc;
+      }
+      &:active {
+        @include alpha-attribute('background-color', rgba($main-btn-bgc, .7), white);
+        color: $bgc-body;
       }
     }
 
@@ -96,20 +100,30 @@
     .landing {
       position: relative;
       padding: 30px 0;
-      margin: 0 auto;
+      //margin: 0 auto;
       text-align: center;
       color: $bgc-body;
       font-size: $font;
       width: 100%;
     }
+    .landing__title {
+      font-size: $font + 13;
+      font-weight: normal;
+      line-height: 1.4;
+      color: $hgroup-color;
+      & span {
+        text-decoration: underline;
+      }
+    }
     .landing__list {
       position: relative;
       text-align: left;
-      margin-left: 20px;
-      padding-bottom: 30px;
+      margin: 20px 0 20px 20px;
+      //padding-bottom: 30px;
     }
    .landing__list-title {
         font-size: $font + 5;
+        font-weight: normal;
         padding-bottom: 2px;
         &:before {
           content: '';
@@ -129,14 +143,7 @@
           font-size: $font - 2;
           padding-bottom: 20px;
     }
-    .landing__title {
-      font-size: $font + 13;
-      line-height: 1.8;
-      color: $hgroup-color;
-      & span {
-        text-decoration: underline;
-      }
-    }
+
 
     @import "main_btn";
   }
@@ -157,16 +164,16 @@
     }
     .landing__list {
       width: 500px;
-      margin: 0 auto;
+      margin: 20px auto;
     }
     .landing__title {
-      font-size: $font + 30;
+      font-size: $font + 26;
       margin-top: 0;
     }
   }
 
   @include screen-desktops {
-    height: 600px;
+    height: 580px;
     background: $bgc-main-page  url("img/rocket_white.png") no-repeat 93% 90%/20%;
     &:after {
       width: 60%;
@@ -185,47 +192,44 @@
       margin: 0 auto;
       font-size: $font + 2;
       border-bottom: 2px solid $bgc-body;
-      & a {
-        color: $bgc-body;
+    }
+    .nav {
+      @include flex(row, auto);
+      align-items: center;
+    }
+    .nav__menu {
+      @include flex(row, space-between);
+      width: 650px;
+    }
+    .menu__item {
+      height: 55px;
+      padding: 17px 0;
+      cursor: pointer;
+    }
+    .menu__item-link {
+      padding: 17px 2px;
+    }
+    .menu__item-link:hover {
+      border-bottom: 2px solid $bgc-body;
+    }
+    .nav__logo {
+      height: 55px;
+      margin-right: 5px;
+      font-size: $font + 10;
+    }
+    .nav__logo-link {
+      display: block;
+      padding: 12px 0 18px;
+      position: relative;
+      top: -3px;
+      border-top: none;
+      border-bottom: 4px solid $main-btn-bgc;
+      &:hover {
+        @include alpha-attribute('color', rgba($hgroup-color, .7), black);
       }
-      .nav {
-        @include flex(row, auto);
-        align-items: center;
-      }
-      .nav__menu {
-        @include flex(row, space-between);
-        width: 650px;
-      }
-      .menu__item {
-        height: 55px;
-        padding: 17px 0;
-        cursor: pointer;
-      }
-      .menu__item-link {
-        padding: 17px 2px;
-      }
-      .menu__item-link:hover {
-        border-bottom: 2px solid $bgc-body;
-      }
-      .nav__logo {
-        height: 55px;
-        margin-right: 5px;
-        font-size: $font + 10;
-      }
-      .nav__logo-link {
-        display: block;
-        padding: 12px 0 18px;
-        position: relative;
-        top: -3px;
-        border-top: none;
-        border-bottom: 4px solid $main-btn-bgc;
-        &:hover {
-          @include alpha-attribute('color', rgba($hgroup-color, .7), black);
+      &:hover span {
+        @include alpha-attribute('color', rgba($main-btn-bgc, .7), black);
         }
-        &:hover span {
-          @include alpha-attribute('color', rgba($main-btn-bgc, .7), black);
-          }
-      }
     }
     .landing {
       max-width: $main_width;
@@ -235,11 +239,12 @@
     .landing__title {
       width: 100%;
       //margin: 0 auto;
-      margin: -30px auto 0;
+      margin: -30px auto 40px;
     }
 
     .landing__list {
-      padding-bottom: 50px;
+      width: 600px;
+      padding-bottom: 20px;
     }
 
     // ========== Search ===========
