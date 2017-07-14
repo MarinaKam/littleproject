@@ -91,7 +91,7 @@
   box-shadow:$top $left $blur $color #{$inset};
 }
 @mixin btn($font-size, $bgc) {
-  padding: 5px 10px 8px;
+  padding: 5px 10px ;
   font-size: $font-size;
   @include border(2px, darken($bgc, 5%), 50px);
   @content;
@@ -103,7 +103,6 @@
   @content;
   &:hover {
     @include alpha-attribute('background-color', $bgcHover, white);
-    //background:darken($bgcHover, .5%);
     color: $colorHover;
     transition: all 0.3s ease;
   }

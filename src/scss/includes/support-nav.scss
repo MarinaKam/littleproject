@@ -1,12 +1,11 @@
 /*support nav
 ============================================================================
 */
-
-.support {
-  width: 100%;
-  border: 1px solid #e8e8e8;
-
   @include screen-tiny {
+    .support {
+      width: 100%;
+      @include flex(column, none);
+    }
     .support__info-link {
       color: $hgroup-color;
     }
@@ -22,7 +21,12 @@
     .support__info,
     .support__menu {
       @include flex(row, flex-start);
+      align-items: center;
       width: 100%;
+      & .fa {
+        color: $hgroup-color;
+        padding: 3px;
+      }
     }
     .support__info-text {
       margin-right: 10px;
@@ -30,10 +34,88 @@
     .menu__item {
       padding: 5px 2px;
     }
+    .skype {
+      margin-left: 18px;
 
-    & .fa {
-      color: $hgroup-color;
-      padding: 3px;
+    }
+    .nav__wrapper {
+      width: 100%;
+      position: relative;
+      margin: 0 auto;
+      background-color: rgba($bgc-main-page, .8);
+      border: none;
+    }
+    .main__nav {
+      width: 100%;
+      @include flex(row, space-between);
+      & a {
+        color: $bgc-body;
+      }
+      & .nav__logo-link {
+        color: $main-btn-bgc;
+      }
+    }
+    .nav {
+      @include flex(row, space-between);
+      align-items: center;
+    }
+    .nav__logo {
+      position: relative;
+      height: 55px;
+      width: 100px;
+      left: 55px;
+    }
+    .nav__logo-link {
+      display: block;
+      width: 100%;
+      padding: 16px 0 17px 2px;
+      border-bottom: 2px solid $bgc-body;
+      & span {
+        color: $hgroup-color;
+      }
+      &:hover {
+        color: $bgc-body;
+      }
+      &:active {
+        color: $main-btn-bgc;
+      }
+    }
+    .nav__menu {
+      display: none;
+    }
+    .login {
+      padding: 3px 8px 5px;
+      @include border(1px, white, 50px);
+      background-color: rgba($bgc-body, .3);
+      &:hover {
+        background-color: rgba($bgc-body, .8);
+        color: $main-btn-bgc;
+      }
+      &:active {
+        background-color: rgba($bgc-body, .3);
+        color: $bgc-body;
+      }
+    }
+    .sign {
+      margin-left: 5px;
+      padding: 3px 6px 5px;
+      @include border(1px, darken($main-btn-bgc, 5%), 50px);
+      background-color: rgba($main-btn-bgc, .8);
+      &:hover {
+        background-color: rgba($bgc-body, .8);
+        color: $main-btn-bgc;
+      }
+      &:active {
+        background-color: rgba($main-btn-bgc, .8);
+        color: $bgc-body;
+      }
+    }
+    .nav__btn {
+      @include flex(row, space-between);
+      align-items: center;
+      position: relative;
+      font-size: $font + 2;
+      font-weight: 100;
     }
   }
   @include screen-tablets {
@@ -49,6 +131,17 @@
     .support__menu {
       width: 50%;
     }
+    .nav__logo {
+      width: 104px;
+    }
+    .nav__logo-link {
+      width: 100%;
+      padding: 16px 0 18px 2px;
+      font-size: $font + 4;
+    }
+    .nav__btn {
+      font-size: $font + 4;
+    }
   }
   @include screen-desktops {
     .support__nav {
@@ -62,11 +155,45 @@
     .support__info {
       width: 470px;
     }
-    .menu__item {
-      padding-left: 10px;
+    .main__nav {
+      max-width: $main_width;
+      margin: 0 auto;
+      position: relative;
+      border-bottom: 1px solid $bgc-body;
+      font-size: $font + 4;
+      font-weight: 100;
     }
+    .nav {
+      height: 55px;
+    }
+    .nav__logo {
+      left: 0;
+      width: 112px;
+    }
+    .nav__logo-link {
+      font-size: $font + 5;
+      padding: 16px 0 17px 2px;
+      border-bottom: 3px solid $main-btn-bgc;
+    }
+    .nav__menu {
+      @include flex(row, space-between);
+      width: 650px;
+      margin-left: 5px;
+    }
+    .nav__item {
+      height: 55px;
+      //margin-left: 8px;
+      padding: 16px 0;
+      cursor: pointer;
+    }
+    .nav__item-link {
+      padding: 15px 2px;
+    }
+    .nav__item-link:hover {
+      border-bottom: 2px solid $bgc-body;
+    }
+
   }
-}
 
 /*support nav END
 ============================================================================

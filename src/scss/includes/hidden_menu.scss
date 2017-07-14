@@ -5,8 +5,7 @@
   @include screen-tiny {
     position: absolute;
     left: 0;
-    //right: 0;
-    margin: 59px 10px 0 0;
+    margin: 0 10px 0 0;
     width: 55px;
     height: 55px;
     @include alpha-attribute('background-color', rgba($hgroup-color, 0.5), white);
@@ -17,14 +16,14 @@
 
     .sandwich {
       position: relative;
-      margin: 19px auto;
+      margin: 16px auto;
       width: 30px;
       cursor: pointer;
       z-index: 200;
       &.active {
         position: fixed;
-        left: 12px;
-        top: 50px;
+        left: 14px;
+        top: 47px;
       }
       &.active .sw-topper {
         top: 9px;
@@ -125,10 +124,10 @@
 
   }
   @include screen-tablets {
-    margin: 39px 10px 0 0;
+    margin: 0 10px 0 0;
     .sandwich {
       &.active {
-        top: 31px;
+        top: 29px;
       }
     }
   }

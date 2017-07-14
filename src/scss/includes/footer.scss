@@ -1,58 +1,57 @@
 /*footer
 ============================================================================
 */
-.footer {
-  @include screen-tiny {
+
+@include screen-tiny {
+  .footer {
     position: relative;
     width: 100%;
     background-color: $bgc-main-page;
-    .footer__wrapper {
-      @include flex(row, space-between);
-      max-width: $main_width;
-      margin: 0 auto;
-      padding: 5px 0;
+  }
+  .footer__wrapper {
+    @include flex(row, space-between);
+    max-width: $main_width;
+    margin: 0 auto;
+    padding: 5px 0;
+  }
+  .footer__logo {
+    margin: auto 0;
+    color: white;
+    font-size: $font;
+  }
+  .logo {
+    display: none;
+  }
+  .logo-text {
+    margin-right: 10px;
+  }
+  .logo {
+    margin-left: 10px;
+  }
+  .social__icon {
+    color: white;
+    font-size: $font + 10;
+    &:hover {
+      opacity: .5;
     }
-    .footer__logo {
-      margin: auto 0;
-      //margin: auto;
+    &:active {
       color: white;
-      font-size: $font;
-    }
-    .logo {
-      display: none;
-    }
-    .logo-text {
-      margin-right: 10px;
-    }
-    .logo {
-      margin-left: 10px;
-    }
-    .social__icon {
-      color: white;
-      font-size: $font + 10;
-      &:hover {
-        opacity: .5;
-      }
-      &:active {
-        color: white;
-      }
     }
   }
-  @include screen-tablets {
-    .footer__logo {
-      @include flex(row, space-between);
-      //margin: auto 0;
-    }
-    .logo {
-      display: block;
-    }
-    .social__icon {
-      font-size: $font + 10;
-    }
+}
+@include screen-tablets {
+  .footer__logo {
+    @include flex(row, space-between);
   }
-  @include screen-desktops {
-    .social__icon {
-      font-size: $font + 16;
-    }
+  .logo {
+    display: block;
+  }
+  .social__icon {
+    font-size: $font + 10;
+  }
+}
+@include screen-desktops {
+  .social__icon {
+    font-size: $font + 16;
   }
 }
