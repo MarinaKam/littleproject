@@ -46,26 +46,26 @@ const config = {
 
 gulp.task('styles', function() {
         gulp.src(`${path.src}/**/main.scss`)
-            // .pipe(plumber({
-            //     errorHandler: notify.onError(err => ({
-            //         title: 'SCSS',
-            //         message: err.message
-            //     }))
-            // }))
+            .pipe(plumber({
+                errorHandler: notify.onError(err => ({
+                    title: 'SCSS',
+                    message: err.message
+                }))
+            }))
             .pipe(_if(isDevelopment, sourcemaps.init()))
             .pipe(scss())
             .pipe(autoprefixer('last 2 version'))
-            // .pipe(cssmin({keepBreaks: true}))
-            // .pipe(_if(!isDevelopment, cssnano()))
-            // .pipe(_if(!isDevelopment, cleanCSS()))
-            // .pipe(_if(isDevelopment, rev()))
+            .pipe(cssmin({keepBreaks: true}))
+            .pipe(_if(!isDevelopment, cssnano()))
+            .pipe(_if(!isDevelopment, cleanCSS()))
+            .pipe(_if(isDevelopment, rev()))
             .pipe(concat('style.css'))
             .pipe(_if(isDevelopment, sourcemaps.write()))
-            // .pipe(plumber.stop())
+            .pipe(plumber.stop())
             .pipe(gulp.dest(`${path.dest}/css/`))
-            // .pipe(rename({ suffix: '.min' }))
-            // .pipe(_if(isDevelopment, rev.manifest('css.json')))
-            // .pipe(_if(isDevelopment, gulp.dest('manifest')))
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(_if(isDevelopment, rev.manifest('css.json')))
+            .pipe(_if(isDevelopment, gulp.dest('manifest')))
             .pipe(notify({ message: 'Styles task completed' }))
             .pipe(reload({stream: true}));
 });

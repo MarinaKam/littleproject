@@ -105,10 +105,19 @@
     .form input.btn {
       width: 95px;
       height: 36px;
-      background-image: linear-gradient(to top, #1991eb 0%, #2ca0f7 100%);
-      @include border(1px, $hgroup-color, 4px);
+      background-color: $hgroup-color;
+      @include border(1px, $hgroup-color, 50px);
       color: white;
       font-size: $font;
+      &:hover {
+        background-color: white;
+        color: $hgroup-color;
+        transition: all 0.3s ease;
+      }
+      &:active {
+        background-image: linear-gradient(to top, #1991eb 0%, #2ca0f7 100%);
+        color: white;
+      }
     }
 
   }

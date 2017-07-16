@@ -86,13 +86,14 @@
     .login {
       padding: 3px 8px 5px;
       @include border(1px, white, 50px);
-      background-color: rgba($bgc-body, .3);
+      background-color: rgba($bgc-body, .1);
       &:hover {
-        background-color: rgba($bgc-body, .8);
+        background-color: rgba($bgc-body, 1);
         color: $main-btn-bgc;
+        transition: all 0.3s ease;
       }
       &:active {
-        background-color: rgba($bgc-body, .3);
+        background-color: rgba($bgc-body, .1);
         color: $bgc-body;
       }
     }
@@ -100,13 +101,14 @@
       margin-left: 5px;
       padding: 3px 6px 5px;
       @include border(1px, darken($main-btn-bgc, 5%), 50px);
-      background-color: rgba($main-btn-bgc, .8);
+      background-color: rgba($main-btn-bgc, 1);
       &:hover {
-        background-color: rgba($bgc-body, .8);
+        background-color: rgba($bgc-body, 1);
         color: $main-btn-bgc;
+        transition: all 0.3s ease;
       }
       &:active {
-        background-color: rgba($main-btn-bgc, .8);
+        background-color: rgba($main-btn-bgc, 1);
         color: $bgc-body;
       }
     }
