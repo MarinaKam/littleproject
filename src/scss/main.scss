@@ -55,6 +55,16 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+.container {
+  width: $main_width;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 @import "includes/hidden_menu";
 @import "includes/support-nav";

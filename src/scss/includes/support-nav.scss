@@ -68,7 +68,7 @@
     .nav__logo-link {
       display: block;
       width: 100%;
-      padding: 16px 0 17px 2px;
+      padding: 16px 0 18px 2px;
       border-bottom: 2px solid $bgc-body;
       & span {
         color: $hgroup-color;
@@ -174,13 +174,21 @@
     }
     .nav__logo-link {
       font-size: $font + 5;
-      padding: 16px 0 17px 2px;
+      padding: 16px 0 16px 2px;
       border-bottom: 3px solid $main-btn-bgc;
     }
     .nav__menu {
       @include flex(row, space-between);
       width: 650px;
       margin-left: 5px;
+      a {
+        padding: 15px 2px;
+        &:hover,
+        &:focus {
+          border-bottom: 2px solid $bgc-body;
+        }
+      }
+
     }
     .nav__item {
       height: 55px;
@@ -188,12 +196,7 @@
       padding: 16px 0;
       cursor: pointer;
     }
-    .nav__item-link {
-      padding: 15px 2px;
-    }
-    .nav__item-link:hover {
-      border-bottom: 2px solid $bgc-body;
-    }
+
 
   }
 
